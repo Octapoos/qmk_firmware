@@ -43,6 +43,7 @@ void suspend_wakeup_init_keymap(void);
 void matrix_scan_keymap(void);
 uint32_t layer_state_set_keymap(uint32_t state);
 uint32_t default_layer_state_set_keymap(uint32_t state);
+bool send_launch_macro(const char *str, keyrecord_t *record);
 
 typedef union {
   uint32_t raw;

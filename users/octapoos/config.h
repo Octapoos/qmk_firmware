@@ -15,3 +15,5 @@
 #ifndef TAPPING_TOGGLE
 #define TAPPING_TOGGLE  1
 #endif
+
+#define KEYMAP_SAFE_RANGE SAFE_RANGE
