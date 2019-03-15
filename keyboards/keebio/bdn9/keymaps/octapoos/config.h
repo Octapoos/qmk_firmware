@@ -38,9 +38,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* COL2ROW, ROW2COL*/
 #define DIODE_DIRECTION COL2ROW
 
-#define NUMBER_OF_ENCODERS 2
+// #define NUMBER_OF_ENCODERS 2
+#undef ENCODERS_PAD_A
 #define ENCODERS_PAD_A { D0, F6 }
+
+
+#undef ENCODERS_PAD_B
 #define ENCODERS_PAD_B { D1, F5 }
+
+
+
+
 
 
 #define BACKLIGHT_PIN B5
