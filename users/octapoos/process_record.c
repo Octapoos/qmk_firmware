@@ -56,6 +56,51 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
     }
     break;
+  case SPOTIFY:  // Open Spotify
+    if (record->event.pressed) {
+      send_launch_macro("spotify", record);
+    }
+    return false;
+  case CHROME:  // Open Chrome
+    if (record->event.pressed) {
+      send_launch_macro("chrome", record);
+    }
+    return false;
+  case TWITCH:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LGUI());
+      _delay_ms(100);
+      SEND_STRING("chrome"SS_TAP(X_ENTER));
+      _delay_ms(200);
+      SEND_STRING("twitch.tv"SS_TAP(X_ENTER));
+      _delay_ms(100);
+    }
+    return false;
+  case YOUTUBE:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LGUI());
+      _delay_ms(100);
+      SEND_STRING("chrome"SS_TAP(X_ENTER));
+      _delay_ms(200);
+      SEND_STRING("youtube.com"SS_TAP(X_ENTER));
+      _delay_ms(100);
+    }
+    return false;
+  case DISCORD:
+    if (record->event.pressed) {
+      send_launch_macro("discord", record);
+    }
+    return false;
+  case STEAM:
+    if (record->event.pressed) {
+      send_launch_macro("steam", record);
+    }
+    return false;
+  case LEAGUE:
+    if (record->event.pressed) {
+      send_launch_macro("league", record);
+    }
+    return false;
 /*#ifdef UNICODE_ENABLE
   case UC_FLIP: // (ノಠ痊ಠ)ノ彡┻━┻
     if (record->event.pressed) {
