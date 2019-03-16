@@ -92,3 +92,14 @@ void matrix_scan_user(void) {
     state = default_layer_state_set_keymap(state);
     return state;
   }
+
+  bool send_launch_macro(const char *str, keyrecord_t *record) {
+    clear_keyboard();
+    SEND_STRING(SS_LGUI());
+    _delay_ms(100);
+    send_string(str);
+    _delay_ms(100);
+    SEND_STRING(SS_TAP(X_ENTER));
+    _delay_ms(100);
+    return false;
+  }

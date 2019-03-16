@@ -1,4 +1,4 @@
-/* Copyright 2019 Danny Nguyen <danny@keeb.io>
+/* Copyright 2019 Andy Poos <andpoos@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,20 +16,11 @@
 #include QMK_KEYBOARD_H
 #include "octapoos.h"
 
-enum custom_keycodes {
-  SPOTIFY = SAFE_RANGE,
-  CHROME,
-  TWITCH,
-  YOUTUBE,
-  DISCORD,
-  STEAM
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
         KC_MUTE, KC_F13,  KC_MPLY, //
         YOUTUBE, DISCORD, STEAM,   //
-        TWITCH,  SPOTIFY, CHROME   //
+        TWITCH,  SPOTIFY, LEAGUE   //
     ),
 };
 
@@ -48,54 +39,4 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_MPRV);
         }
     }
-}
-
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    switch (keycode) {
-      case SPOTIFY:  // Open Spotify
-        SEND_STRING(SS_LGUI());
-        _delay_ms(100);
-        SEND_STRING("spotify");
-        _delay_ms(100);
-        SEND_STRING(SS_TAP(X_ENTER));
-        _delay_ms(100);
-        return false;
-      case CHROME:  // Open Chrome
-        SEND_STRING(SS_LGUI());
-        _delay_ms(100);
-        SEND_STRING("chrome"SS_TAP(X_ENTER));
-        _delay_ms(100);
-        return false;
-      case TWITCH:
-        SEND_STRING(SS_LGUI());
-        _delay_ms(100);
-        SEND_STRING("chrome"SS_TAP(X_ENTER));
-        _delay_ms(200);
-        SEND_STRING("twitch.tv"SS_TAP(X_ENTER));
-        _delay_ms(100);
-        return false;
-      case YOUTUBE:
-        SEND_STRING(SS_LGUI());
-        _delay_ms(100);
-        SEND_STRING("chrome"SS_TAP(X_ENTER));
-        _delay_ms(200);
-        SEND_STRING("youtube.com"SS_TAP(X_ENTER));
-        _delay_ms(100);
-        return false;
-      case DISCORD:
-        SEND_STRING(SS_LGUI());
-        _delay_ms(100);
-        SEND_STRING("discord"SS_TAP(X_ENTER));
-        _delay_ms(100);
-        return false;
-      case STEAM:
-        SEND_STRING(SS_LGUI());
-        _delay_ms(100);
-        SEND_STRING("steam"SS_TAP(X_ENTER));
-        _delay_ms(100);
-        return false;
-    }
-  }
-  return true;
 }
