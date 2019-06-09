@@ -28,6 +28,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define ADJUST MO(_ADJUST)
+#define FUNCTION MO(_FUNCTION)
 
 #define QWERTY KC_QWERTY
 #define COLEMAK KC_COLEMAK

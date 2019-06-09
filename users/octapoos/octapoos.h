@@ -33,6 +33,7 @@ enum userspace_layers {
   _WORKMAN,
   _LOWER,
   _RAISE,
+  _FUNCTION,
   _ADJUST,
 };
 

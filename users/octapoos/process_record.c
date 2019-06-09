@@ -56,6 +56,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
     }
     break;
+#ifdef MACROPAD
   case SPOTIFY:  // Open Spotify
     if (record->event.pressed) {
       send_launch_macro("spotify", record);
@@ -123,6 +124,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
 #endif*/
+#endif
   }
   return process_record_keymap(keycode, record);
 }
