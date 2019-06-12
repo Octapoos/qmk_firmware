@@ -13,7 +13,8 @@ enum userspace_cutsom_keycodes {
   KC_COLEMAK,        // Sets default layer to COLEMAK
   KC_DVORAK,         // Sets default layer to DVORAK
   KC_WORKMAN,        // Sets default layer to WORKMAN
-  KC_CCCV,            // Hold to copy, tap to paste
+  KC_CSGO,           // Sets default layer to CSGO
+  KC_CCCV,           // Hold to copy, tap to paste
   SPOTIFY,
   CHROME,
   TWITCH,
@@ -34,6 +35,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 #define COLEMAK KC_COLEMAK
 #define DVORAK KC_DVORAK
 #define WORKMAN KC_WORKMAN
+#define CSGO KC_CSGO
 
 #define KC_RESET RESET
 #define KC_RST KC_RESET
@@ -43,3 +45,5 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 #ifndef TAPPING_TERM
 #define TAPPING_TERM 100
 #endif
+
+

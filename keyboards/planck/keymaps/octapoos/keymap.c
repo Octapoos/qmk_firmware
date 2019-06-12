@@ -108,11 +108,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
 		 _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, KC_DEL ,
       //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-		 _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  WORKMAN, _______,
+		 _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  CSGO,    _______, _______, _______,
       //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
 		 _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, _______, _______,_______,
       //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
 		 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+      //└────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┘
+  ),
+
+  [_CSGO] = LAYOUT_wrapper(
+      //┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
+         KC_GESC, ________________NUMBER_LEFT________________, ________________NUMBER_RIGHT_______________, KC_BSPC,
+      //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    _______, _______, _______, _______, _______,
+      //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+         KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_B,    _______, _______, _______, _______, _______,
+      //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+         KC_LSFT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
       //└────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┘
   )
 };
@@ -157,6 +169,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };*/
 
+
+
 uint32_t layer_state_set_keymap(uint32_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
@@ -184,18 +198,24 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     }
   } else {
     if (clockwise) {
-	  #ifdef EXTRAKEY_ENABLE
-		tap_code(KC_VOLU);
+      #ifdef MOUSEKEY_ENABLE
+        tap_code(KC_MS_WH_DOWN);
       #else
-        register_code(KC_PGDN);
-        unregister_code(KC_PGDN);
+        #ifdef EXTRAKEY_ENABLE
+		  tap_code(KC_VOLU);
+        #else
+          tap_code(KC_PGDN);
+        #endif
       #endif
     } else {
-      #ifdef EXTRAKEY_ENABLE
-		tap_code(KC_VOLD);
+      #ifdef MOUSEKEY_ENABLE
+        tap_code(KC_MS_WH_UP);
       #else
-        register_code(KC_PGUP);
-        unregister_code(KC_PGUP);
+        #ifdef EXTRAKEY_ENABLE
+          tap_code(KC_VOLD);
+        #else
+          tap_code(KC_PGDN);
+        #endif
       #endif
     }
   }
