@@ -86,6 +86,15 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_R3__________________       XXXXXXX, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD
 
 
+#define ________________FUNCTION_L1________________       ________________NUMBER_LEFT________________
+#define ________________FUNCTION_L2________________       _________________FUNC_LEFT_________________
+#define ________________FUNCTION_L3________________       ___________________BLOCK___________________
+
+#define ________________FUNCTION_R1________________       ________________NUMBER_RIGHT_______________
+#define ________________FUNCTION_R2________________       _________________FUNC_RIGHT________________
+#define ________________FUNCTION_R3________________       ___________________BLOCK___________________
+
+
 #define _________________ADJUST_L1_________________       RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG
 #define _________________ADJUST_L2_________________       MU_TOG , CK_TOGG, AU_ON,   AU_OFF,  AG_NORM
 #define _________________ADJUST_L3_________________       RGB_RMOD,RGB_HUD,RGB_SAD, RGB_VAD, XXXXXXX

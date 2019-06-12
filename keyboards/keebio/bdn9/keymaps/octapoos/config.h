@@ -27,9 +27,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT         BDN9
 #define DESCRIPTION     3x3 Macropad with Rotary Encoders
 
-/* key matrix size */
+/* key matrix size *
 #define MATRIX_ROWS 1
 #define MATRIX_COLS 9
+*/
 
 /* Keyboard Matrix Assignments */
 #define MATRIX_ROW_PINS { NO_PIN }
@@ -46,10 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef ENCODERS_PAD_B
 #define ENCODERS_PAD_B { D1, F5 }
 
-
-
-
-
+#define MACROPAD
 
 #define BACKLIGHT_PIN B5
 // #define BACKLIGHT_BREATHING

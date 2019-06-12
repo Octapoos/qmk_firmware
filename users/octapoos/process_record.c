@@ -7,8 +7,12 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+#ifdef AUDIO_ENABLE
+float csgo_song[][2] = SONG(CHROMATIC_SOUND);
+#endif
+
 // Defines actions tor my global custom keycodes. Defined in octapoos.h file
-// Then runs the _keymap's record handier if not processed here
+// Then runs the _keymap's record handler if not processed here
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case KC_QWERTY:
@@ -30,6 +34,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case KC_WORKMAN:
     if (record->event.pressed) {
       set_single_persistent_default_layer(_WORKMAN);
+    }
+    break;
+  case KC_CSGO:
+    if (record->event.pressed) {
+      set_single_persistent_default_layer(_CSGO);
+      #ifdef AUDIO_ENABLE
+      PLAY_SONG(csgo_song);
+      #endif
     }
     break;
 
@@ -56,6 +68,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
     }
     break;
+#ifdef MACROPAD
   case SPOTIFY:  // Open Spotify
     if (record->event.pressed) {
       send_launch_macro("spotify", record);
@@ -123,6 +136,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
 #endif*/
+#endif
   }
   return process_record_keymap(keycode, record);
 }

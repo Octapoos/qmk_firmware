@@ -33,7 +33,9 @@ enum userspace_layers {
   _WORKMAN,
   _LOWER,
   _RAISE,
+  _FUNCTION,
   _ADJUST,
+  _CSGO,
 };
 
 void matrix_init_keymap(void);
@@ -64,3 +66,5 @@ extern userspace_config_t userspace_config;
   #define KC_TD2 KC_RPRN
   #define KC_TD3 KC_ESC
 #endif // TAP_DANCE_ENABLE
+
+
