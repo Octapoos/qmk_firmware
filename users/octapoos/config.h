@@ -16,4 +16,10 @@
 #define TAPPING_TOGGLE  1
 #endif
 
+#ifndef TAP_CODE_DELAY
+#define TAP_CODE_DELAY 10
+#endif
+
+
 #define KEYMAP_SAFE_RANGE SAFE_RANGE
+

@@ -93,6 +93,7 @@ void matrix_scan_user(void) {
     return state;
   }
 
+#ifdef MACROPAD
   bool send_launch_macro(const char *str, keyrecord_t *record) {
     clear_keyboard();
     SEND_STRING(SS_LGUI());
@@ -103,3 +104,4 @@ void matrix_scan_user(void) {
     _delay_ms(100);
     return false;
   }
+#endif
