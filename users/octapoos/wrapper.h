@@ -88,7 +88,7 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define ________________FUNCTION_L1________________       ________________NUMBER_LEFT________________
 #define ________________FUNCTION_L2________________       _________________FUNC_LEFT_________________
-#define ________________FUNCTION_L3________________       ___________________BLOCK___________________
+#define ________________FUNCTION_L3________________       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NLCK
 
 #define ________________FUNCTION_R1________________       ________________NUMBER_RIGHT_______________
 #define ________________FUNCTION_R2________________       _________________FUNC_RIGHT________________
